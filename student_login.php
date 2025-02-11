@@ -24,7 +24,7 @@ try {
     if ($student && password_verify($password, $student['password'])) {
         // Login successful
         $_SESSION['student_id'] = $student['id'];
-        header("Location: dashboard.php"); // Redirect to dashboard
+        header("Location: dashboard.php"); 
         exit();
     } else {
         echo "<script>alert('Invalid student ID or password.'); window.location.href = 'student_login.html';</script>";
