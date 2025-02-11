@@ -4,23 +4,23 @@ USE hostel_management;
 -- Students Table
 CREATE TABLE students (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    student_id VARCHAR(50) NOT NULL UNIQUE,
-    full_name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
+    full_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
+    student_id VARCHAR(20) UNIQUE NOT NULL,
+    room_number VARCHAR(10) NULL,
+    payment_status ENUM('Pending', 'Paid') DEFAULT 'Pending',
     registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Rooms Table (Example)
+-- Rooms Table
 CREATE TABLE rooms (
     id INT AUTO_INCREMENT PRIMARY KEY,
     room_number VARCHAR(50) NOT NULL UNIQUE,
     status ENUM('Available', 'Occupied') DEFAULT 'Available'
-    room_number VARCHAR(10);
-    payment_status VARCHAR(20) DEFAULT 'Pending';
 );
 
--- Payments Table (Example)
+-- Payments Table
 CREATE TABLE payments (
     id INT AUTO_INCREMENT PRIMARY KEY,
     student_id INT NOT NULL,
